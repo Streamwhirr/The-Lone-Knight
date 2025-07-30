@@ -1,0 +1,107 @@
+[gd_scene load_steps=16 format=3 uid="uid://cftbnd3jwsvhv"]
+
+[ext_resource type="Script" uid="uid://d4njm0iky1f5v" path="res://witch_projectile.gd" id="1_fqq64"]
+[ext_resource type="Texture2D" uid="uid://cmsn3r6u8bg0s" path="res://Assets/Sprites/Evil Wizard/Projectile/Moving.png" id="2_d78rm"]
+[ext_resource type="Texture2D" uid="uid://c02d3now5elo2" path="res://Assets/Sprites/Evil Wizard/Projectile/Explode.png" id="2_ot23d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urf80"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k3pa"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0ln0"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_171wt"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21qrc"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dab83"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dnyx"]
+atlas = ExtResource("2_ot23d")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot23d"]
+atlas = ExtResource("2_d78rm")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wduqe"]
+atlas = ExtResource("2_d78rm")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h845u"]
+atlas = ExtResource("2_d78rm")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qgdy"]
+atlas = ExtResource("2_d78rm")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urf80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urf80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k3pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0ln0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_171wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21qrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dab83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dnyx")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot23d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wduqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h845u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qgdy")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}]
+
+[node name="Witch Projectile" type="CharacterBody2D"]
+script = ExtResource("1_fqq64")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_urf80")
+animation = &"Hit"
+autoplay = "Shoot"
+frame = 6
+frame_progress = 0.130312
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
