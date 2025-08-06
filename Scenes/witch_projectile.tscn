@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cftbnd3jwsvhv"]
+[gd_scene load_steps=17 format=3 uid="uid://cftbnd3jwsvhv"]
 
 [ext_resource type="Script" uid="uid://d4njm0iky1f5v" path="res://witch_projectile.gd" id="1_fqq64"]
 [ext_resource type="Texture2D" uid="uid://cmsn3r6u8bg0s" path="res://Assets/Sprites/Evil Wizard/Projectile/Moving.png" id="2_d78rm"]
@@ -94,14 +94,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_d78rm"]
+
 [node name="Witch Projectile" type="CharacterBody2D"]
 script = ExtResource("1_fqq64")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urf80")
-animation = &"Hit"
+animation = &"Shoot"
 autoplay = "Shoot"
-frame = 6
-frame_progress = 0.130312
+frame_progress = 0.931926
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d78rm")
